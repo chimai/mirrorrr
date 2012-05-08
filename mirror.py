@@ -259,11 +259,6 @@ class MirrorHandler(BaseHandler):
     if translated_address == "favicon.ico":
       return self.redirect("/favicon.ico")
     mirrored_url = HTTP_PREFIX + translated_address
-    if self.request.user_agent.find("Android") == -1 and self.request.headers["Host"]=="opliruqi.appspot.com":
-      if base_url.split('.')[-1] != "com":
-        return self.redirect("http://liruqi001.appspot.com/" + translated_address)
-      if base_url.split('.')[-1] == "com":
-        return self.redirect("http://wcproxyx.appspot.com/" + translated_address)
 
     if base_url in HSTS_DOMAINS:
       mirrored_url = HTTPS_PREFIX + translated_address
